@@ -5,13 +5,13 @@ const assert = require('assert');
 const url = 'mongodb://localhost:27017';
 
 // Database Name
-const dbName = 'gigs';
+const dbName = 'users';
 // Create a new MongoClient
 
 const MongoClient = require('mongodb').MongoClient;
 
 const client = new MongoClient(url);
-let collection = {};
+let usersCollection = {};
 
    MongoClient.connect(url, function(err, client) {
     if(err) {
@@ -20,7 +20,7 @@ let collection = {};
      }
 
      let db = client.db(dbName);
-     collection.gigs = db.collection('gig')
+     usersCollection.users = db.collection('user')
    });
 
-   module.exports = collection
+   module.exports = usersCollection
