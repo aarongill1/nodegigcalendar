@@ -7,23 +7,21 @@
   </head>
   <body>
     <body>
-      <%- include('./partials/navbar.ejs') %>
       <div class="jumbotron text-center">
-      <h1>Welcome to Gigbook</h1>
-      <p>Gig calendar with notifications</p>
+      <h1>Login to Gigbook</h1>
       </div>
 
         <div>
-        <form name="testform" method="POST" action="/gigbook/:user/addgig">
+        <form name="loginform" method="GET" action="/gigbook/:testuser">
         <table>
-          <h1>Add a gig</h1>
+          <h1>Enter you login information</h1>
             <tr>
-            <td>Artist</td>
-            <td><input type="text" name="artist" placeholder="Enter an artist" required></td>
+            <td>Username</td>
+            <td><input type="text" name="user" placeholder="Enter your username" required></td>
             </tr>
             <tr>
-            <td>Date</td>
-            <td><input type="date" name="date" required></td>
+            <td>Password</td>
+            <td><input type="text" name="password" required ></td>
             </tr>
             <tr>
             <td colspan="2"><input type="submit" value="Save" ></td>
@@ -31,28 +29,6 @@
         </table>
         </form>
       </div>
-
-          <table class="table table-bordered table-sm w-50">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Artist</th>
-                <th scope="col">Date</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-
-        <% gigList.forEach(function(entry) { %>
-          <ul>
-            <tr>
-            <td><%=entry.artist %></td>
-            <td><%=entry.date %> </td>
-            <form name="testdel" method="POST" action="/gigbook/delete">
-             <input type="hidden" name="_id" value=<%=entry._id %>>
-            <td><button>Delete</button></td>
-          </form>
-          </tr>
-        <% }); %>
-    </table>
 
         <link href="/css/style.css" rel="stylesheet" type="text/css">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
